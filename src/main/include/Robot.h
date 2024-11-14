@@ -23,6 +23,10 @@ public:
   void SimulationInit()     override;
   void SimulationPeriodic() override;
 
+  frc::Joystick* operatorJoystick;
+
+  Leds* LedSubSystem;
+
 private:
 
   frc2::Command* m_autonomousCommand = nullptr;

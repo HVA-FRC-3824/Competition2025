@@ -15,8 +15,10 @@ RobotContainer::RobotContainer()
     // SmartDashboard Buttons
     frc::SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
 
-    frc::SmartDashboard::PutData("SetLeds: Off", new SetLeds(0, &m_leds));
-    frc::SmartDashboard::PutData("SetLeds: Rainbow", new SetLeds(1, &m_leds));
+    frc::SmartDashboard::PutData("SetLeds: Off", new SetLeds(LedMode::LedOff, &m_leds));
+    frc::SmartDashboard::PutData("SetLeds: Rainbow", new SetLeds(LedMode::Rainbow, &m_leds));
+
+
 
     frc::SmartDashboard::PutData("ChassisDrive: Stop", new ChassisDrive(0, 0, &m_drivetrain));
 
@@ -26,7 +28,7 @@ RobotContainer::RobotContainer()
     ConfigureButtonBindings();
 
     m_drivetrain.SetDefaultCommand(ChassisDrive(0, 0, &m_drivetrain));
-    m_leds.SetDefaultCommand(SetLeds(1, &m_leds));
+    m_leds.SetDefaultCommand(SetLeds(LedMode::Rainbow, &m_leds));
 
     m_chooser.AddOption("DriveDistance: OneFoot", new DriveDistance(1, &m_drivetrain));
     m_chooser.AddOption("DriveDistance: TwoFeet", new DriveDistance(2, &m_drivetrain));
@@ -52,6 +54,8 @@ void RobotContainer::ConfigureButtonBindings()
     m_setLEDsOff.OnTrue(SetLeds(0, &m_leds).WithInterruptBehavior(frc2::Command::InterruptionBehavior::kCancelSelf));
 
     m_setLEDsRainbow.OnTrue(SetLeds(1, &m_leds).WithInterruptBehavior(frc2::Command::InterruptionBehavior::kCancelSelf));
+
+
 }
 
 frc::Joystick *RobotContainer::getJoystickOperator()

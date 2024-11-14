@@ -1,7 +1,23 @@
 {
+  "HALProvider": {
+    "Addressable LEDs": {
+      "window": {
+        "visible": true
+      }
+    }
+  },
   "NTProvider": {
     "types": {
-      "/FMSInfo": "FMSInfo"
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/Auto Mode": "String Chooser",
+      "/SmartDashboard/Autonomous Command": "Command",
+      "/SmartDashboard/ChassisDrive: Stop": "Command",
+      "/SmartDashboard/DriveDistance: OneFoot": "Command",
+      "/SmartDashboard/DriveDistance: TwoFeet": "Command",
+      "/SmartDashboard/Drivetrain": "Subsystem",
+      "/SmartDashboard/SetLeds: Off": "Command",
+      "/SmartDashboard/SetLeds: Rainbow": "Command",
+      "/SmartDashboard/class frc2::SubsystemBase": "Subsystem"
     }
   },
   "NetworkTables Info": {

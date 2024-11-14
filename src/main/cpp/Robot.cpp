@@ -9,6 +9,11 @@ void Robot::RobotInit()
 {
   EnableLiveWindowInTest(true);
   HAL_Report(HALUsageReporting::kResourceType_Framework, HALUsageReporting::kFramework_RobotBuilder);
+  
+  // LedSubSystem = new Leds();
+  // LedSubSystem->SetMode(LedMode::HvaColors);
+
+  // operatorJoystick = new frc::Joystick(0);
 }
 
 /**
@@ -20,7 +25,9 @@ void Robot::RobotInit()
  */
 void Robot::RobotPeriodic()
 {
-  frc2::CommandScheduler::GetInstance().Run();
+  // frc2::CommandScheduler::GetInstance().Run();
+
+  // LedSubSystem->Periodic();
 }
 
 /**

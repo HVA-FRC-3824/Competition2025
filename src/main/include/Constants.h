@@ -15,3 +15,4 @@
 #define NumOfBitsCorrected        1
 #define LengthOfTagsInches        6.5
 
+#define LED_PWM_PORT              5
