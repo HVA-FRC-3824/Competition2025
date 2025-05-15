@@ -767,7 +767,6 @@ ChassDriveAprilTagParameters RobotContainer::GetChassisDriveToAprilTagParameters
         case GripperPoseEnum::AlgaeLow:   // Drive to the reef for extracting algae
         case GripperPoseEnum::AlgaeHigh:
         {
-            // parameters.FieldCentricity = false;
             parameters.PoseParameters.DistanceX = ConstantsChassisAprilTagToPose::AlgaeReefDistanceOffsetX;
             parameters.PoseParameters.DistanceY = ConstantsChassisAprilTagToPose::AlgaeReefDistanceOffsetY;
             parameters.PoseParameters.Angle     = ConstantsChassisAprilTagToPose::AlgaeReefAngleOffset;
