@@ -138,9 +138,9 @@ class RobotContainer
 
         frc::PowerDistribution                m_powerDistribution;
 
-        cs::VideoSink                         m_server;
-        cs::UsbCamera                         m_usbCamera;
-        cs::VideoSink                         m_limelightFeed;
+        // cs::VideoSink                         m_server;
+        // cs::UsbCamera                         m_usbCamera;
+        // cs::VideoSink                         m_limelightFeed;
 
-        bool                                  m_usbCameraActive = false;
+        // bool                                  m_usbCameraActive = false;
 };

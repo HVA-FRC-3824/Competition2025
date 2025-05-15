@@ -251,6 +251,9 @@ void ChassisDriveToAprilTag::End(bool interrupted)
         m_swerveControllerCommand = nullptr;
     }
 
+    // Setting the field centricity
+    // m_drivetrain->SetFieldCentricity(m_getParameters().FieldCentricity);
+
     // Stop the move
     m_drivetrain->Drive(0_mps, 0_mps, 0_rad_per_s);
 }

@@ -37,7 +37,7 @@ namespace ConstantsGripperPoseCoral
     constexpr auto GroundGripperVoltage          = CoralGroundPickupVoltage;
 
     constexpr auto StationElevator               = 0.053983_m;    //0.055263_m;//0.095_m;
-    constexpr auto StationArmAngle               = 5.439453_deg;  //6.435547_deg;//-19.75_deg;
+    constexpr auto StationArmAngle               = -5.0_deg;  //6.435547_deg;//-19.75_deg;
     constexpr auto StationWristAngle             = 180.0_deg;
     constexpr auto StationGripperBothWheels      = true;
     constexpr auto StationGripperVoltage         = 5.0_V;  // Verify the voltage

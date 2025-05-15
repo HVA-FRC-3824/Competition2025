@@ -85,12 +85,12 @@ RobotContainer::RobotContainer()
                                                                     [this] { return GetStartPosition();                           },
                                                                     [this] { return GetAutonomousOneCoralAprilTagParameters();    },
                                                                     [this] { return GetChassisDriveToAprilTagParameters();        },
-                                                                    &m_drivetrain, &m_gripper));
+                                                                    &m_drivetrain, &m_gripper, &m_climb));
     m_autonomousChooser.AddOption("Place Coral L4 AprilTag", new AutonomousOneCoralAprilTag(GripperPoseEnum::CoralL4,
                                                                     [this] { return GetStartPosition();                           },
                                                                     [this] { return GetAutonomousOneCoralAprilTagParameters();    },
                                                                     [this] { return GetChassisDriveToAprilTagParameters();        },
-                                                                    &m_drivetrain, &m_gripper));
+                                                                    &m_drivetrain, &m_gripper, &m_climb));
 
     // m_autonomousChooser.AddOption("Place Coral and Algae",   new AutonomousCoralAndAlgae(GripperPoseEnum::CoralL4,
     //                                                                 [this] { return GetStartPosition();                           },
@@ -138,7 +138,7 @@ RobotContainer::RobotContainer()
     // // Set the initial camera source to the Limelight camera
     // m_server.SetSource(m_limelightFeed.GetSource());
 
-    frc::SmartDashboard::PutString("Active Camera", "USB Camera");
+    //frc::SmartDashboard::PutString("Active Camera", "USB Camera");
 }
 #pragma endregion
 
@@ -173,24 +173,24 @@ void RobotContainer::ConfigureDriverControls()
     frc2::JoystickButton (&m_driverController, ConstantsExtreme3D::HandleUpperLeft)
         .OnTrue(new frc2::InstantCommand([this] { m_drivetrain.ZeroHeading(); }, {&m_drivetrain}));
 
-    // Switch between camera feeds
-    frc2::JoystickButton(&m_driverController, ConstantsExtreme3D::HandleUpperRight).OnTrue(new frc2::InstantCommand([this]
-    {
-       // Toggle the active camera flag
-       m_usbCameraActive = !m_usbCameraActive;
+    // // Switch between camera feeds
+    // frc2::JoystickButton(&m_driverController, ConstantsExtreme3D::HandleUpperRight).OnTrue(new frc2::InstantCommand([this]
+    // {
+    //    // Toggle the active camera flag
+    //    m_usbCameraActive = !m_usbCameraActive;
 
-       // Update the video source based on the active camera
-       if (m_usbCameraActive)
-       {
-           m_server.SetSource(m_usbCamera);
-           frc::SmartDashboard::PutString("Active Camera", "USB Camera");
-       }
-       else
-       {
-           m_server.SetSource(m_limelightFeed.GetSource());
-           frc::SmartDashboard::PutString("Active Camera", "Limelight");
-       }
-    }));
+    //    // Update the video source based on the active camera
+    //    if (m_usbCameraActive)
+    //    {
+    //        m_server.SetSource(m_usbCamera);
+    //        frc::SmartDashboard::PutString("Active Camera", "USB Camera");
+    //    }
+    //    else
+    //    {
+    //        m_server.SetSource(m_limelightFeed.GetSource());
+    //        frc::SmartDashboard::PutString("Active Camera", "Limelight");
+    //    }
+    // }));
 
     // Reset the gyro angle
     // frc2::JoystickButton (&m_driverController, Extreme3DConstants::HandleUpperRight)
@@ -676,6 +676,9 @@ ChassDriveAprilTagParameters RobotContainer::GetChassisDriveToAprilTagParameters
 {
     ChassDriveAprilTagParameters parameters;
 
+    // Sets the field centricity to true after getting to the position.
+    parameters.FieldCentricity = true;
+
     // Assume the pose is valid
     parameters.ValidPose = true;
 
@@ -764,6 +767,7 @@ ChassDriveAprilTagParameters RobotContainer::GetChassisDriveToAprilTagParameters
         case GripperPoseEnum::AlgaeLow:   // Drive to the reef for extracting algae
         case GripperPoseEnum::AlgaeHigh:
         {
+            // parameters.FieldCentricity = false;
             parameters.PoseParameters.DistanceX = ConstantsChassisAprilTagToPose::AlgaeReefDistanceOffsetX;
             parameters.PoseParameters.DistanceY = ConstantsChassisAprilTagToPose::AlgaeReefDistanceOffsetY;
             parameters.PoseParameters.Angle     = ConstantsChassisAprilTagToPose::AlgaeReefAngleOffset;

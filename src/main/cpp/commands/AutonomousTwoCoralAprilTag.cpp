@@ -22,18 +22,18 @@ AutonomousTwoCoralAprilTag::AutonomousTwoCoralAprilTag(GripperPoseEnum          
                                                        std::function<ChassDriveAprilTagParameters()> getStationParemters,
                                                        Drivetrain *drivetrain, Gripper *gripper) 
 {
-    AddCommands(AutonomousOneCoralAprilTag(gripperPoseEnum, getStartingPosition, getOneCoralParemters, getAprilTagParameters, drivetrain, gripper),
-                GripperPose(GripperPoseEnum::CoralStation, gripper),
-                //ChassisDrivePose() // move to point to station AprilTag
-                frc2::WaitCommand(0.3_s) // Pause to see AprilTag
-                // Move to station AprilTag
-                // Wait to get Coral
-                // Move to point to reefApriltag
-                // Move to reef
-                // GripperActivate
-                // Back up 36 inches
+    // AddCommands(AutonomousOneCoralAprilTag(gripperPoseEnum, getStartingPosition, getOneCoralParemters, getAprilTagParameters, drivetrain, gripper),
+    //             GripperPose(GripperPoseEnum::CoralStation, gripper),
+    //             //ChassisDrivePose() // move to point to station AprilTag
+    //             frc2::WaitCommand(0.3_s) // Pause to see AprilTag
+    //             // Move to station AprilTag
+    //             // Wait to get Coral
+    //             // Move to point to reefApriltag
+    //             // Move to reef
+    //             // GripperActivate
+    //             // Back up 36 inches
 
-                //ChassisDrivePose(2_mps, -12.0_in, 0_in, 0_deg, 5_s, drivetrain));     // Move robot away from reef
-    );
+    //             //ChassisDrivePose(2_mps, -12.0_in, 0_in, 0_deg, 5_s, drivetrain));     // Move robot away from reef
+    // );
 }
 

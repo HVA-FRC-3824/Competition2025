@@ -18,6 +18,7 @@ struct ChassDriveAprilTagParameters
 {
     bool                      ValidPose;
     bool                      ReefRightSide;
+    bool                      FieldCentricity;
     ChassDrivePoseParameters  PoseParameters;
 };
 
